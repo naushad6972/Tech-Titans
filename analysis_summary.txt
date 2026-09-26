@@ -1,0 +1,145 @@
+================================================================================
+MASTER STATISTICAL ANALYSIS REPORT  VOLTRELAY BATTERY SWAP ANALYTICS
+================================================================================
+
+--- 1. OVERALL SWAP METRICS ---
+Total Swap Transactions Logged: 3,877,013
+Successfully Completed Swaps: 3,645,809 (94.04%)
+Direct Stockout Failures (no charged battery): 134,389 (3.47%)
+Abandoned Queue Events (due to stockout delay): 68,533 (1.77%)
+Total Stockout Impacted Swaps: 202,922 (5.23%)
+Overall Average Rider Queue Wait Time: 243.0 seconds (4.05 minutes)
+
+--- 2. STOCKOUT FREQUENCY BY CITY ---
+     city  total_swaps  direct_stockouts  abandoned  total_stockouts  avg_queue_wait_sec  stockout_rate_pct
+   Jaipur       487634             23303      11518            34821          243.276693           7.140806
+Delhi NCR       768913             33892      17030            50922          242.722361           6.622596
+Hyderabad       711930             28274      14158            42432          242.785407           5.960137
+     Pune       552910             15480       8081            23561          243.007462           4.261272
+Bengaluru       825327             20602      10919            31521          242.900433           3.819213
+   Mumbai       530299             12838       6827            19665          243.244164           3.708285
+
+--- 3. TOP 15 WORST STATIONS BY STOCKOUT RATE ---
+ station_id      city              zone  location_type  total_swaps  total_stockouts  direct_stockouts  avg_queue_wait_sec  stockout_rate_pct
+STN-DEL-037 Delhi NCR         DEL-Noida commercial_hub        30838             2582              1728          242.635871           8.372787
+STN-DEL-048 Delhi NCR          DEL-West         market        34646             2856              1894          243.989119           8.243376
+STN-JAI-141    Jaipur JAI-Malviya Nagar commercial_hub        45594             3689              2474          243.734088           8.090977
+STN-JAI-137    Jaipur JAI-Malviya Nagar commercial_hub        44371             3572              2380          242.782583           8.050303
+STN-JAI-142    Jaipur      JAI-Vaishali commercial_hub        33319             2678              1740          244.333623           8.037456
+STN-DEL-045 Delhi NCR         DEL-Noida commercial_hub        32237             2557              1716          243.086795           7.931880
+STN-JAI-139    Jaipur      JAI-Vaishali commercial_hub        31659             2510              1657          243.128210           7.928235
+STN-JAI-136    Jaipur JAI-Malviya Nagar    transit_hub        29340             2323              1570          241.874131           7.917519
+STN-JAI-138    Jaipur JAI-Malviya Nagar         market        48945             3874              2635          243.439636           7.915007
+STN-DEL-040 Delhi NCR         DEL-South         market        40335             3192              2078          242.694236           7.913723
+STN-DEL-043 Delhi NCR          DEL-East commercial_hub        49597             3917              2611          243.276166           7.897655
+STN-DEL-050 Delhi NCR          DEL-East commercial_hub        47060             3715              2513          242.044284           7.894178
+STN-DEL-039 Delhi NCR          DEL-East    residential        31783             2488              1681          240.925746           7.828084
+STN-DEL-036 Delhi NCR         DEL-Noida         market        35499             2772              1843          243.547142           7.808671
+STN-JAI-140    Jaipur JAI-Malviya Nagar commercial_hub        44115             3431              2347          242.591046           7.777400
+
+--- 4. STOCKOUT RATE BY HOUR OF DAY ---
+ hour  total_swaps  total_stockouts  avg_queue_wait_sec  stockout_rate_pct
+    0        23043             1118          243.871761           4.851799
+    1        23482             1122          245.071374           4.778128
+    2        25536             1248          242.593828           4.887218
+    3        28822             1290          243.604226           4.475748
+    4        31193             1376          241.425480           4.411246
+    5        28510             1328          243.668608           4.658015
+    6        62020             2941          242.690487           4.742019
+    7        66889             3123          243.696064           4.668929
+    8       171129             8473          242.903079           4.951236
+    9       232933            11355          242.609617           4.874792
+   10       136985             6880          244.367230           5.022448
+   11       102700             5508          243.085005           5.363194
+   12       362706            16877          242.784277           4.653080
+   13       376310            17546          242.720430           4.662645
+   14       178943             8755          243.263559           4.892619
+   15       115556             6052          243.565873           5.237288
+   16       112611             5985          243.651881           5.314756
+   17       122420             6270          243.666019           5.121712
+   18       220399            10611          243.140758           4.814450
+   19       447731            26168          242.766306           5.844581
+   20       446270            26201          242.457118           5.871109
+   21       354692            20938          242.943046           5.903150
+   22       180944            10591          242.290919           5.853192
+   23        25189             1166          244.542658           4.629005
+
+--- 4B. STOCKOUT RATE HEATMAP (%) (HOUR x DAY OF WEEK) ---
+day_of_week  Monday  Tuesday  Wednesday  Thursday  Friday  Saturday  Sunday
+hour                                                                       
+0              4.82     4.84       5.11      5.02    4.76      4.54    4.89
+1              5.08     4.71       4.97      4.41    4.34      4.93    5.01
+2              5.10     4.80       4.93      4.57    4.65      5.54    4.60
+3              4.23     4.05       4.44      5.44    4.44      4.29    4.46
+4              4.44     5.05       4.22      4.22    4.43      3.82    4.73
+5              4.17     4.96       5.05      4.31    4.68      4.53    4.92
+6              4.71     4.82       4.69      4.57    5.00      4.92    4.48
+7              4.40     4.76       4.84      4.92    4.35      4.82    4.58
+8              4.88     5.09       4.69      5.21    4.79      5.10    4.89
+9              4.76     4.80       4.83      4.86    5.02      5.01    4.83
+10             5.19     5.09       4.67      5.05    5.07      5.02    5.07
+11             5.36     5.65       5.49      5.30    5.10      5.16    5.51
+12             4.71     4.66       4.57      4.69    4.65      4.70    4.59
+13             4.73     4.56       4.74      4.78    4.64      4.72    4.48
+14             4.97     4.64       4.83      5.05    4.82      4.71    5.22
+15             5.25     4.95       5.34      5.49    5.11      5.39    5.13
+16             5.33     5.40       5.19      5.62    5.34      5.25    5.06
+17             5.01     4.80       5.05      5.31    5.08      5.13    5.47
+18             4.83     4.89       4.56      4.76    4.86      5.04    4.74
+19             5.82     5.77       5.84      5.90    5.89      5.79    5.91
+20             5.94     5.84       5.76      5.93    5.87      6.02    5.73
+21             5.84     5.96       5.70      6.00    5.84      6.05    5.93
+22             5.93     5.88       5.81      5.74    5.74      5.94    5.92
+23             4.23     4.59       4.79      4.39    4.48      4.93    4.96
+
+--- 5. FLEET PARTNERS VS RETAIL STOCKOUT RATES ---
+ is_fleet         partner_name  total_swaps  total_stockouts  avg_queue_wait_sec  stockout_rate_pct
+     True             HaulKing        60434             5717          243.136628           9.459907
+     True             CargoTuk       149015            13798          243.005778           9.259471
+     True             FeastFly       559823            29019          242.648750           5.183603
+     True              ZipDrop       592069            30655          243.048974           5.177606
+     True          DabbaXpress        99116             5062          242.147050           5.107147
+     True           Swiggle Go       256515            12998          243.267941           5.067150
+    False Independent / Retail      1311535            65996          242.896996           5.031966
+     True            QuickCart       137831             6886          242.964275           4.995973
+     True          LastMileHub        86846             4159          242.710879           4.788937
+     True            RideMitra       127724             6059          242.988060           4.743823
+     True          UrbanErrand        88703             4176          243.429523           4.707845
+     True            MetroMove        88127             4011          242.450929           4.551386
+     True           ParcelNest       319275            14386          243.536763           4.505834
+
+--- 6. CITY DAILY CONTEXT CORRELATIONS ---
+Avg Stockout Rate on Heat Alert Days: 15.25% vs Normal: 4.73%
+Avg Stockout Rate on Flood Disruption Days: 3.85% vs Normal: 5.21%
+Avg Stockout Rate on E-commerce Sale Event Days: 3.64% vs Normal: 5.24%
+Avg Stockout Rate on Grid Outage Days (>0 hrs): 5.61% vs Grid Normal: 4.72%
+Correlation between Grid Outage Hours & Daily Stockout Rate: 0.2529
+Correlation between Max Temp (C) & Daily Stockout Rate: 0.7057
+Correlation between Rainfall (mm) & Daily Stockout Rate: -0.0519
+
+--- 7. SUPPORT TICKET CROSS-VALIDATION ---
+Total Support Tickets: 44,000
+Correlation (Station Stockout Count vs Total Support Tickets): 0.9756
+Correlation (Station Stockout Count vs 'Long Queue' Complaints): 0.9596
+Top 5 Stations with Most 'Long Queue' Tickets:
+ station_id      city              zone  total_stockouts  stockout_rate_pct  queue_tickets
+STN-HYD-072 Hyderabad   HYD-Hitech City             3801           7.342799          114.0
+STN-JAI-138    Jaipur JAI-Malviya Nagar             3874           7.915007           98.0
+STN-HYD-070 Hyderabad         HYD-South             3405           6.852761           94.0
+STN-JAI-140    Jaipur JAI-Malviya Nagar             3431           7.777400           93.0
+STN-DEL-045 Delhi NCR         DEL-Noida             2557           7.931880           92.0
+
+--- 8. BATTERY MASTER & DEGRADATION ANALYSIS ---
+Total Battery Units: 6,500
+Active Batteries: 5,062
+Retired Batteries (end_of_life): 1,438
+Mean Initial SOH (%): 99.19%
+Mean Current SOH (%): 76.61%
+Mean SOH Degradation: 22.58%
+Correlation (Battery Age in Months vs SOH Degradation): -0.2139
+
+Degradation & Retirement by Battery Supplier:
+supplier  battery_count  mean_degradation  retired_pct
+  Amptek           1307         18.189212     0.000000
+ Cellora           3555         18.254740     0.000000
+   Kyron           1638         35.457692    87.789988
